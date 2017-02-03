@@ -47,42 +47,47 @@ function cities(){
 };
 
 function addColumns(cityPop){
-     
-    $('tr').each(function(i){
+    
+    $("tr").each(function(i){
 
     	if (i == 0){
-
-    		$(this).apend('<th>City Size</th>');
+    		//appends 'City Size'
+    		$(this).append('<th>City Size</th>');
     	} else {
-
+    		//holds the size of the city for cityPop
     		var citySize;
 
     		if (cityPop[i-1].population < 100000){
     			citySize = 'Small';
 
     		} else if (cityPop[i-1].population < 500000){
-    			citysize = 'Medium';
+    			citySize = 'Medium';
 
     		} else {
     			citySize = 'Large';
     		};
-
-    		$this.append('<td' + citySize + '</td>');
+    		//adds city size to the city size row
+    		$(this).append('<td>' + citySize + '</td>');
+    		
+    		
     	};
     });
 };
 
 function addEvents(){
+	//creates mouseover function on the table 
 
-	$('#table').mouseover(function(){
+	$('table').mouseover(function(){
 		
+		
+
 		var color = "rgb(";
 
 		for (var i=0; i<3; i++){
 
 			var random = Math.round(Math.random() * 255);
-
-			color += "random";
+			
+			color += random;
 
 			if (i<2){
 				color += ",";
@@ -92,16 +97,21 @@ function addEvents(){
 		};
 
 		$(this).css('color', color);
+
 	};
 
+
+
+});
 	function clickme(){
 
 		alert('Hey, you clicked me!');
+		
 	};
-
+	
 	$('table').on('click', clickme);
-});
-};
 
+};
+hello
 //call the initialize function when the document has loaded
 window.onload = initialize();

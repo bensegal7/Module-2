@@ -44,6 +44,7 @@ function cities(){
 
     addColumns(cityPop);
     addEvents();
+    debugCallback();
 };
 
 function addColumns(cityPop){
@@ -80,13 +81,13 @@ function addEvents(){
 	$('table').mouseover(function(){
 		
 		
-
+		//assigns the var color to rgb color
 		var color = "rgb(";
 
 		for (var i=0; i<3; i++){
 
 			var random = Math.round(Math.random() * 255);
-			
+			//assigns random color 
 			color += random;
 
 			if (i<2){
@@ -95,7 +96,7 @@ function addEvents(){
 			} else {
 				color += ")";
 		};
-
+		//assigns the color of this to var color 
 		$(this).css('color', color);
 
 	};
@@ -104,14 +105,15 @@ function addEvents(){
 
 });
 	function clickme(){
-
+		//when table is clicked, alert pops up
 		alert('Hey, you clicked me!');
 		
 	};
-	
+	//assigns alert when table is clicked
 	$('table').on('click', clickme);
 
 };
-hello
-//call the initialize function when the document has loaded
+
+
+
 window.onload = initialize();

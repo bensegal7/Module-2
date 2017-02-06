@@ -44,7 +44,7 @@ function cities(){
 
     addColumns(cityPop);
     addEvents();
-    debugCallback();
+    
 };
 
 function addColumns(cityPop){
@@ -114,6 +114,30 @@ function addEvents(){
 
 };
 
+//function responds with map.geojson data appended under city
+function debugCallback(response){
+	$(mydiv).append('GeoJSON data: ' + JSON.stringify(response));
+};
+
+//jquery function aquires map data and calls debugCallback 
+function debugAjax(){
+
+	$.ajax("data/map.geojson", {
+		dataType: "json",
+
+		success: function(response){
+			
+			debugCallback(response);
+		}
+	});
+
+	
+};
+
+
+
+
 
 
 window.onload = initialize();
+window.onload = debugAjax();
